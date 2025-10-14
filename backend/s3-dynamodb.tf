@@ -5,13 +5,13 @@ provider "aws" {
 resource "aws_s3_bucket" "tf_state" {
   bucket = var.bucket_name
   tags = {
-    Name    = "basani-tf-backend"
-    Project = "basani"
+    Name    = "srinivas-tf-backend"
+    Project = "srinivas"
   }
 }
 
 resource "aws_dynamodb_table" "tf_lock" {
-  name         = "basani-tf-lock"
+  name         = "srinivas-tf-lock"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
@@ -21,7 +21,8 @@ resource "aws_dynamodb_table" "tf_lock" {
   }
 
   tags = {
-    Name    = "basani-tf-lock"
-    Project = "basani"
+    Name    = "srinivas-tf-lock"
+    Project = "srinivas"
   }
 }
+
