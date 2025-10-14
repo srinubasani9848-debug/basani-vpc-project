@@ -46,4 +46,5 @@ resource "aws_instance" "basani_ec2" {
               systemctl start httpd
               echo "Hello DevOps team" > /var/www/html/index.html
               EOF
+}
 
