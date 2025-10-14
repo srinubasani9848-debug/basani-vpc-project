@@ -39,12 +39,14 @@ resource "aws_instance" "basani_ec2" {
   }
 
   user_data = <<-EOF
-              #!/bin/bash
-              yum update -y
-              yum install -y httpd
-              systemctl enable httpd
-              systemctl start httpd
-              echo "Hello DevOps team" > /var/www/html/index.html
-              EOF
+            #!/bin/bash
+            yum update -y
+            yum install -y httpd
+            systemctl enable httpd
+            systemctl start httpd
+            rm -f /etc/httpd/conf.d/welcome.conf
+            systemctl restart httpd
+            echo "Hello DevOps team" > /var/www/html/index.html
+            EOF
 }
 
