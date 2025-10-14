@@ -7,5 +7,6 @@ variable "region" {
 variable "bucket_name" {
   description = "S3 bucket for Terraform backend"
   type        = string
-  default     = "basani-terraform-backend-2025"
+  default     = "srinivas-terraform-backend-2025"
 }
+
