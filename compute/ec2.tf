@@ -40,13 +40,27 @@ resource "aws_instance" "basani_ec2" {
 
   user_data = <<-EOF
             #!/bin/bash
+
+            # Update system packages
             yum update -y
+
+            # Install Apache
             yum install -y httpd
-            systemctl enable httpd
-            systemctl start httpd
-            rm -f /etc/httpd/conf.d/welcome.conf
-            systemctl restart httpd
+
+            # Remove default Apache welcome page config
+            if [ -f /etc/httpd/conf.d/welcome.conf ]; then
+                rm -f /etc/httpd/conf.d/welcome.conf
+            fi
+
+            # Create custom index.html
             echo "Hello DevOps team" > /var/www/html/index.html
+
+            # Ensure Apache starts on boot
+            systemctl enable httpd
+
+            # Start or restart Apache to apply changes
+            systemctl restart httpd
             EOF
+
 }
 
