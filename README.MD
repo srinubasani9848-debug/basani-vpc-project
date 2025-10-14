@@ -1,4 +1,4 @@
-terraform-basani-project/
+terraform-srinivas-project/
 ├── backend/ # S3 bucket and DynamoDB for remote backend
 │ ├── s3-dynamodb.tf
 │ └── variables.tf
