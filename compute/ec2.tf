@@ -31,7 +31,7 @@ resource "aws_instance" "basani_ec2" {
   ami           = "ami-0c2b8ca1dad447f8a" # Amazon Linux 2 in us-east-1
   instance_type = var.instance_type
   subnet_id     = var.subnet_id
-  security_groups = [aws_security_group.basani_sg.name]
+  vpc_security_group_ids = [aws_security_group.basani_sg.id]  # <-- changed here
 
   tags = {
     Name    = "basani-ec2"
